@@ -47,7 +47,9 @@ const CourseDetail = () => {
                         ))}
                     </div>
                      <p className="text-4xl font-bold my-6 text-center">{course.price}</p>
-                    <Button size="lg" className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg rounded-full">Enroll Now</Button>
+                    <Button asChild size="lg" className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg rounded-full transition-transform duration-200 hover:scale-105">
+                        <Link to={`/enroll?courseId=${course.id}`}>Enroll Now</Link>
+                    </Button>
                 </div>
             </div>
           </div>
