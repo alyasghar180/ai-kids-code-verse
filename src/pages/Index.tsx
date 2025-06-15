@@ -77,63 +77,33 @@ const Index = () => {
               {/* Left: Headline and CTA */}
               <div className="text-center lg:text-left">
                 {/* 100% SATISFACTION GUARANTEE */}
-                <motion.p
-                  initial={{ opacity: 0, y: -15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.1 }}
-                  className="text-xs sm:text-sm font-bold uppercase tracking-widest mb-4 bg-gradient-to-r from-[#3A86FF] to-[#FFBE0B] bg-clip-text text-transparent"
+                <p
+                  className="text-lg sm:text-xl font-extrabold uppercase tracking-[0.18em] mb-6 text-gray-700"
                   style={{ letterSpacing: "0.18em" }}
                 >
                   100% SATISFACTION GUARANTEE
-                </motion.p>
-                {/* Responsive Animated Headline */}
-                <motion.h1
-                  initial={{ opacity: 0, scale: 0.95, y: 28 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.75, delay: 0.2, type: "spring", stiffness: 60 }}
-                  className="text-4xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold mb-4 drop-shadow font-['Fredoka',_Quicksand,_Baloo_2,_Nunito,_sans-serif] leading-tight"
+                </p>
+                {/* Responsive Clean Headline */}
+                <h1
+                  className="text-5xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-extrabold mb-6 font-['Fredoka',_Quicksand,_Baloo_2,_Nunito,_sans-serif] leading-tight text-gray-900"
                   style={{ lineHeight: "1.08" }}
                 >
-                  <span className="inline-block bg-gradient-to-r from-[#3A86FF] via-[#FFBE0B] to-[#FF006E] bg-clip-text text-transparent font-black">
-                    Empowering{" "}
-                  </span>
-                  <span className="inline-block bg-gradient-to-r from-[#FF006E] via-[#FFBE0B] to-[#3A86FF] bg-clip-text text-transparent font-black animate-pulse">
-                    Kids
-                  </span>
-                  <span className="inline-block font-semibold text-gray-900 ml-2" style={{fontWeight:550}}>
+                  Empowering Kids
+                  <span className="font-semibold ml-2" style={{ fontWeight: 550 }}>
                     to Code
                   </span>
-                  <span className="inline-block font-extrabold text-black ml-2" style={{fontWeight:700}}>
-                    with
+                  <span className="font-bold ml-2" style={{ fontWeight: 700 }}>
+                    with AI
                   </span>
-                  <span className="inline-block bg-gradient-to-r from-[#3A86FF] to-[#4ADE80] bg-clip-text text-transparent font-black ml-2 animate-glow">
-                    AI
-                  </span>
-                </motion.h1>
-                {/* Subheading with colored/emphasized keywords */}
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.55 }}
-                  className="text-base xs:text-lg sm:text-xl text-gray-700 mb-7 leading-relaxed font-['Nunito',_Inter,_sans-serif] max-w-2xl mx-auto"
+                </h1>
+                {/* Clean Subheading */}
+                <p
+                  className="text-lg xs:text-xl sm:text-2xl text-gray-700 mb-7 leading-relaxed font-['Nunito',_Inter,_sans-serif] max-w-2xl mx-auto"
                 >
-                  Nurturing the{" "}
-                  <span className="font-bold text-[#FFBE0B]">next generation</span>
-                  {" of "}
-                  <span className="text-[#3A86FF] font-semibold">creators</span>
-                  {", "}
-                  <span className="text-[#4ADE80] font-semibold">thinkers</span>
-                  {", and "}
-                  <span className="text-[#FF006E] font-semibold">innovators</span>{" "}
-                  through interactive{" "}
-                  <span className="text-[#3A86FF] font-bold">AI</span> and{" "}
-                  <span className="text-[#A0C4FF] font-semibold">coding education</span>.
-                </motion.p>
+                  Nurturing the next generation of creators, thinkers, and innovators through interactive AI and coding education.
+                </p>
                 {/* Responsive CTA Buttons & Subline */}
-                <motion.div
-                  initial={{ opacity: 0, y: 22 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.85 }}
+                <div
                   className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                 >
                   <Button
@@ -145,20 +115,17 @@ const Index = () => {
                   <Button
                     variant="ghost"
                     size="lg"
-                    className="text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-full transition-all duration-300 font-bold animate-glow hover:animate-bounce"
+                    className="text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-full transition-all duration-300 font-bold hover:animate-bounce"
                   >
                     <svg className="inline-block mr-2 h-5 w-5 fill-blue-600" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                     See How It Works
                   </Button>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.75, delay: 1.2 }}
+                </div>
+                <div
                   className="text-xs text-gray-500 mt-2"
                 >
                   Takes less than 2 mins. No credit card needed.
-                </motion.div>
+                </div>
               </div>
               {/* Right: Decorative Illustration */}
               <div className="relative h-96 flex items-center justify-center lg:block overflow-visible">
