@@ -62,19 +62,20 @@ const Index = () => {
       icon: <Zap className="h-8 w-8" />,
       title: "Future-Ready Skills",
       description: "Prepare kids for tomorrow's digital world with cutting-edge AI knowledge.",
-      bg: "bg-gradient-to-br from-[#3A86FF]/90 via-[#FFBE0B]/80 to-[#CDB4DB]/80",
+      // Unified beautiful gradient background for all cards
+      bg: "bg-gradient-to-br from-violet-200 via-yellow-50 to-blue-100",
     },
     {
       icon: <BookOpen className="h-8 w-8" />,
       title: "Interactive Learning",
       description: "Hands-on projects and real-world applications make learning engaging and fun.",
-      bg: "bg-gradient-to-br from-[#FF006E]/90 via-[#83C5BE]/80 to-[#FFBE0B]/70",
+      bg: "bg-gradient-to-br from-violet-200 via-yellow-50 to-blue-100",
     },
     {
       icon: <Users className="h-8 w-8" />,
       title: "Expert Instructors",
       description: "Learn from industry professionals who know how to teach complex concepts simply.",
-      bg: "bg-gradient-to-br from-[#83C5BE]/80 via-[#3A86FF]/80 to-[#FF006E]/70",
+      bg: "bg-gradient-to-br from-violet-200 via-yellow-50 to-blue-100",
     }
   ];
 
