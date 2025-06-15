@@ -21,6 +21,7 @@ import { courses as featuredCourses } from "@/data/courses";
 import { motion, AnimatePresence } from "framer-motion";
 import FlipCard from "@/components/FlipCard";
 import InfiniteScrollBanner from "@/components/InfiniteScrollBanner";
+import InfiniteScrollBannerLTR from "@/components/InfiniteScrollBannerLTR";
 
 const Index = () => {
   const testimonials = [
@@ -190,6 +191,7 @@ const Index = () => {
 
         {/* Infinite Scroll Banner (NEW) */}
         <InfiniteScrollBanner />
+        <InfiniteScrollBannerLTR />
 
         {/* What Makes Us Different Section */}
         <section className="py-16 px-4 bg-white">
