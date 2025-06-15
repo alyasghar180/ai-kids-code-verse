@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { courses as featuredCourses } from "@/data/courses";
+import { motion } from "framer-motion";
 
 const Index = () => {
   const testimonials = [
@@ -76,7 +77,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-sans">
       <Navigation />
       
       {/* Hero Section */}
@@ -86,20 +87,75 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Headline and CTA */}
             <div className="text-center lg:text-left">
-              <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+              {/* 100% SATISFACTION GUARANTEE */}
+              <motion.p
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-xs sm:text-sm font-bold uppercase tracking-widest mb-4 bg-gradient-to-r from-[#3A86FF] to-[#FFBE0B] bg-clip-text text-transparent"
+                style={{ letterSpacing: "0.18em" }}
+              >
                 100% SATISFACTION GUARANTEE
-              </p>
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-gray-800 leading-tight">
-                Empowering Kids to Code with AI
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Nurturing the next generation of creators, thinkers, and innovators
-                through interactive AI and coding education.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              </motion.p>
+              {/* Animated Headline */}
+              <motion.h1
+                initial={{ opacity: 0, scale: 0.95, y: 28 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.75, delay: 0.2, type: "spring", stiffness: 60 }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 font-['Fredoka',_Quicksand,_Baloo_2,_Nunito,_sans-serif] leading-tight"
+              >
+                <span className="inline-block bg-gradient-to-r from-[#3A86FF] via-[#FFBE0B] to-[#FF006E] bg-clip-text text-transparent px-1">
+                  Empowering Kids
+                </span>
+                {" "}
+                <span className="inline-block bg-gradient-to-r from-[#83C5BE] to-[#CDB4DB] bg-clip-text text-transparent px-1 animate-pulse">
+                  to Code
+                </span>
+                {" with "}
+                <span className="inline-block bg-gradient-to-r from-[#FFBE0B] via-[#3A86FF] to-[#FF006E] bg-clip-text text-transparent px-1 animate-glow font-black shadow-blue-400">
+                  <motion.span
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1.2, opacity: 1 }}
+                    transition={{ duration: 0.55, delay: 0.35, type: "spring", stiffness: 80 }}
+                    className="drop-shadow-lg"
+                  >
+                    AI
+                  </motion.span>
+                </span>
+              </motion.h1>
+              {/* Subheading */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.55 }}
+                className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed font-['Nunito',_Inter,_sans-serif] max-w-2xl mx-auto"
+              >
+                <span className="inline-block">
+                  Nurturing the
+                </span>{" "}
+                <span className="inline-block bg-gradient-to-r from-[#FFBE0B] to-[#83C5BE] bg-clip-text text-transparent font-bold">
+                  next generation
+                </span>{" "}
+                <span className="inline-block">of creators, thinkers,&nbsp;and</span>
+                <span className="inline-block bg-gradient-to-r from-[#FF006E] to-[#3A86FF] bg-clip-text text-transparent font-bold">
+                  innovators
+                </span>
+                <span>
+                  &nbsp;through interactive&nbsp;
+                  <span className="text-[#3A86FF] font-semibold">AI</span>{" "}
+                  and&nbsp;coding&nbsp;education.
+                </span>
+              </motion.p>
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.85 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              >
                 <Button
                   size="lg"
-                  className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-bounce"
                 >
                   Join For Free
                 </Button>
@@ -111,7 +167,7 @@ const Index = () => {
                   <Play className="mr-2 h-5 w-5 fill-blue-600" />
                   See How It Works
                 </Button>
-              </div>
+              </motion.div>
             </div>
             {/* Right: Animated Hero Images */}
             <div className="relative h-96 flex items-center justify-center lg:block">
