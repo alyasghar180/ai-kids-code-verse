@@ -38,25 +38,6 @@ const Index = () => {
     }
   ];
 
-  const benefits = [
-    {
-      icon: <Zap className="h-8 w-8" />,
-      title: "Future-Ready Skills",
-      description: "Prepare kids for tomorrow's digital world with cutting-edge AI knowledge."
-    },
-    {
-      icon: <BookOpen className="h-8 w-8" />,
-      title: "Interactive Learning",
-      description: "Hands-on projects and real-world applications make learning engaging and fun."
-    },
-    {
-      icon: <Users className="h-8 w-8" />,
-      title: "Expert Instructors",
-      description: "Learn from industry professionals who know how to teach complex concepts simply."
-    }
-  ];
-
-  // Array of images to show in hero
   const heroImages = [
     {
       src: "/lovable-uploads/e6f59396-fb6d-49e7-b0ac-de2ee719afd3.png",
@@ -74,6 +55,27 @@ const Index = () => {
       src: "/lovable-uploads/3542977f-e149-4e49-b26c-75d467114156.png",
       alt: "Smiling student with books",
     },
+  ];
+
+  const benefits = [
+    {
+      icon: <Zap className="h-8 w-8" />,
+      title: "Future-Ready Skills",
+      description: "Prepare kids for tomorrow's digital world with cutting-edge AI knowledge.",
+      bg: "bg-gradient-to-br from-[#3A86FF]/90 via-[#FFBE0B]/80 to-[#CDB4DB]/80",
+    },
+    {
+      icon: <BookOpen className="h-8 w-8" />,
+      title: "Interactive Learning",
+      description: "Hands-on projects and real-world applications make learning engaging and fun.",
+      bg: "bg-gradient-to-br from-[#FF006E]/90 via-[#83C5BE]/80 to-[#FFBE0B]/70",
+    },
+    {
+      icon: <Users className="h-8 w-8" />,
+      title: "Expert Instructors",
+      description: "Learn from industry professionals who know how to teach complex concepts simply.",
+      bg: "bg-gradient-to-br from-[#83C5BE]/80 via-[#3A86FF]/80 to-[#FF006E]/70",
+    }
   ];
 
   return (
@@ -227,13 +229,27 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center p-8 hover:shadow-lg transition-shadow duration-300 border-0 bg-gradient-to-br from-gray-50 to-white">
+              <Card
+                key={index}
+                className={`
+                  text-center p-8 hover:shadow-xl transition-shadow duration-300 border-0
+                  ${benefit.bg}
+                  relative overflow-hidden
+                `}
+                style={{
+                  backgroundBlendMode: "overlay",
+                  boxShadow: "0 4px 30px 0 rgba(58,134,255,0.13)",
+                  borderRadius: "1.25rem"
+                }}
+              >
                 <CardContent className="pt-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white">
+                  <div className="w-16 h-16 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-inner border border-white/40">
                     {benefit.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 text-gray-800">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-xl font-extrabold mb-4 text-gray-800 drop-shadow font-['Fredoka','Quicksand','Baloo 2',sans-serif]">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed font-['Nunito', 'Inter', sans-serif]">{benefit.description}</p>
                 </CardContent>
               </Card>
             ))}
