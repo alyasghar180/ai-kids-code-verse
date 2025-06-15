@@ -19,6 +19,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { courses as featuredCourses } from "@/data/courses";
 import { motion, AnimatePresence } from "framer-motion";
+import FlipCard from "@/components/FlipCard";
 
 const Index = () => {
   const testimonials = [
@@ -59,27 +60,6 @@ const Index = () => {
       src: "/lovable-uploads/3542977f-e149-4e49-b26c-75d467114156.png",
       alt: "Smiling student with books",
     },
-  ];
-
-  const benefits = [
-    {
-      icon: <Zap className="h-8 w-8" />,
-      title: "Future-Ready Skills",
-      description: "Prepare kids for tomorrow's digital world with cutting-edge AI knowledge.",
-      bg: "bg-gradient-to-br from-violet-200 via-yellow-50 to-blue-100",
-    },
-    {
-      icon: <BookOpen className="h-8 w-8" />,
-      title: "Interactive Learning",
-      description: "Hands-on projects and real-world applications make learning engaging and fun.",
-      bg: "bg-gradient-to-br from-violet-200 via-yellow-50 to-blue-100",
-    },
-    {
-      icon: <Users className="h-8 w-8" />,
-      title: "Expert Instructors",
-      description: "Learn from industry professionals who know how to teach complex concepts simply.",
-      bg: "bg-gradient-to-br from-violet-200 via-yellow-50 to-blue-100",
-    }
   ];
 
   return (
@@ -238,91 +218,53 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Benefits Section */}
+        {/* What Makes Us Different Section (replaces benefits section) */}
         <section className="py-16 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4 text-gray-800">Why Choose Next-Gen AI School?</h2>
-              <p className="text-xl text-gray-600">We believe every child can become a tech leader</p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit.title}
-                  initial={{ opacity: 0, y: 45, scale: 0.92 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  whileHover={{ scale: 1.04, boxShadow: "0 4px 50px 0 rgba(58,134,255,0.20)" }}
-                  transition={{
-                    duration: 0.65,
-                    delay: 0.12 + index * 0.18,
-                    type: "spring",
-                    stiffness: 60,
-                    bounce: 0.35
-                  }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  className="w-full"
-                >
-                  <Card
-                    className={`
-                      text-center p-8 hover:shadow-2xl transition-shadow duration-300 border-0
-                      ${benefit.bg}
-                      relative overflow-hidden group
-                      cursor-pointer
-                    `}
-                    style={{
-                      backgroundBlendMode: "overlay",
-                      boxShadow: "0 4px 30px 0 rgba(58,134,255,0.13)",
-                      borderRadius: "1.25rem"
-                    }}
-                  >
-                    <CardContent className="pt-6">
-                      <motion.div
-                        className="w-16 h-16 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-inner border border-white/40 group-hover:scale-110 transition-transform duration-300"
-                        whileHover={{
-                          rotate: [0, 6, -6, 0],
-                          scale: 1.13
-                        }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 160,
-                          damping: 6,
-                          repeat: 0,
-                          duration: 0.5
-                        }}
-                      >
-                        {benefit.icon}
-                      </motion.div>
-                      <h3 className="text-xl font-extrabold mb-4 text-gray-800 drop-shadow font-['Fredoka','Quicksand','Baloo 2',sans-serif]">
-                        <motion.span
-                          initial={{ opacity: 0, y: 24 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{
-                            duration: 0.65,
-                            delay: 0.24 + index * 0.14,
-                            type: "tween"
-                          }}
-                          viewport={{ once: true }}
-                          className="block bg-gradient-to-r from-[#3A86FF] via-[#FFBE0B] to-[#FF006E] bg-clip-text text-transparent"
-                        >
-                          {benefit.title}
-                        </motion.span>
-                      </h3>
-                      <motion.p
-                        initial={{ opacity: 0, y: 18 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{
-                          duration: 0.80,
-                          delay: 0.31 + index * 0.14,
-                          type: "tween"
-                        }}
-                        viewport={{ once: true }}
-                        className="text-gray-700 leading-relaxed font-['Nunito', 'Inter', sans-serif]"
-                      >
-                        {benefit.description}
-                      </motion.p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.72, type: "spring" }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl font-bold mb-4 text-gray-800 font-['Fredoka','Quicksand','Nunito',sans-serif]">
+                What Makes Us{" "}
+                <span className="text-[#FFBE0B] drop-shadow-[0_1.5px_0_rgba(255,190,11,0.54)] animate-pulse font-extrabold">
+                  Different?
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600">Not just another coding website for kids</p>
+            </motion.div>
+            <div
+              className="
+                grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8
+                max-w-3xl mx-auto
+              "
+            >
+              {[
+                {
+                  icon: "🚀",
+                  title: "Tech for Tomorrow",
+                  description: "Equip kids with future-proof AI and coding skills.",
+                },
+                {
+                  icon: "🧠",
+                  title: "Think Like an Innovator",
+                  description: "Encourage creativity, logic, and problem-solving.",
+                },
+                {
+                  icon: "🎮",
+                  title: "Gamified Learning",
+                  description: "Kids unlock badges, avatars & rewards as they learn.",
+                },
+                {
+                  icon: "👩‍🏫",
+                  title: "Mentors, Not Just Teachers",
+                  description: "Our instructors mentor kids through personalized feedback.",
+                },
+              ].map((card, idx) => (
+                <FlipCard key={card.title} idx={idx} {...card} />
               ))}
             </div>
           </div>
