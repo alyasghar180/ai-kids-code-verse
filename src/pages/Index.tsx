@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +10,10 @@ import {
   ArrowRight,
   Play,
   CheckCircle,
+  Cpu,
+  Sparkles,
+  Code,
+  BrainCog
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
@@ -62,7 +67,6 @@ const Index = () => {
       icon: <Zap className="h-8 w-8" />,
       title: "Future-Ready Skills",
       description: "Prepare kids for tomorrow's digital world with cutting-edge AI knowledge.",
-      // Unified beautiful gradient background for all cards
       bg: "bg-gradient-to-br from-violet-200 via-yellow-50 to-blue-100",
     },
     {
@@ -172,50 +176,61 @@ const Index = () => {
                 </Button>
               </motion.div>
             </div>
-            {/* Right: Animated Hero Images */}
-            <div className="relative h-96 flex items-center justify-center lg:block">
-              {/* Decorative floating circles */}
-              <div className="absolute -top-6 -right-6 w-16 h-16 bg-yellow-300 rounded-full opacity-80"></div>
-              <div className="absolute bottom-12 -left-12 w-10 h-10 bg-blue-400 rounded-full opacity-60"></div>
-              <div className="absolute top-1/2 -left-20 w-6 h-6 bg-purple-300 rounded-full opacity-70"></div>
-              <div className="grid grid-cols-2 gap-4 h-full items-center">
-                {heroImages.map((img, i) => (
-                  <div
-                    key={img.src}
-                    className={`
-                      flex items-center justify-center 
-                      ${i % 2 === 0 ? "pt-10" : "pb-10"}
-                      animate-fade-in
-                      group
-                    `}
-                    style={{
-                      animation: `fade-in 0.6s ${(i+1)*0.1}s both, scale-in 0.4s ${(i+1)*0.15}s both`
-                    }}
-                  >
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className={`
-                        ${i % 2 === 0 ? "rounded-full" : "rounded-3xl"} 
-                        object-cover
-                        w-40 h-40 lg:w-48 lg:h-48 
-                        shadow-lg border-4 border-white
-                        transition-transform duration-300
-                        group-hover:scale-110
-                        hover:shadow-2xl hover:brightness-105
-                        hover:-translate-y-2
-                        hover:ring-4 hover:ring-blue-200
-                        cursor-pointer
-                      `}
-                      style={{
-                        boxShadow: "0 8px 36px 0 rgba(80, 100, 255, 0.15)",
-                        transitionProperty: "transform, box-shadow, filter"
-                      }}
-                      draggable={false}
-                    />
-                  </div>
-                ))}
-              </div>
+            {/* Right: Animated/Atrractive Illustration replacing Images */}
+            <div className="relative h-96 flex items-center justify-center lg:block overflow-visible">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 32 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 0.3, type: "spring", bounce: 0.2 }}
+                className="relative w-80 h-80 mx-auto flex items-center justify-center"
+              >
+                {/* Large Blurred AI Glow Blob */}
+                <div className="absolute inset-0 w-full h-full rounded-full bg-gradient-to-tr from-yellow-300/60 via-blue-200/60 to-purple-200/70 blur-2xl opacity-80 animate-pulse" />
+                {/* Layered Colorful Rings */}
+                <div className="absolute w-56 h-56 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-blue-400/50 animate-spin-slow"></div>
+                <div className="absolute w-36 h-36 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-yellow-300/40 animate-spin-reverse"></div>
+                <div className="absolute w-28 h-28 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-pink-400/50 animate-spin-fast"></div>
+                {/* Dots and Spark Animations */}
+                <Sparkles className="absolute top-10 left-7 text-pink-500 opacity-70 animate-bounce" size={32} />
+                <Cpu className="absolute bottom-12 right-8 text-blue-600 animate-float" size={40} />
+                <motion.div
+                  className="absolute bottom-8 left-9 flex items-center animate-jump"
+                  animate={{ y: [0, -12, 0] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                >
+                  <Code className="text-yellow-500 mr-2" size={28}/>
+                  <span className="text-blue-700 font-bold drop-shadow-md animate-bounce">AI</span>
+                </motion.div>
+                {/* Center Icon */}
+                <motion.div
+                  className="w-24 h-24 rounded-full bg-gradient-to-tr from-blue-400 to-pink-400 flex items-center justify-center shadow-xl border-white border-4 mx-auto"
+                  animate={{
+                    scale: [1, 1.11, 1],
+                    rotate: [0, 6, -6, 0]
+                  }}
+                  transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                >
+                  <BrainCog className="text-white animate-spin-slow" size={54}/>
+                </motion.div>
+                {/* Decorative small dots */}
+                <div className="absolute top-16 right-24 w-4 h-4 bg-pink-400 rounded-full blur-sm opacity-90 animate-ping"></div>
+                <div className="absolute bottom-20 left-16 w-3 h-3 bg-yellow-300 rounded-full blur-[2px] opacity-70 animate-pulse"></div>
+              </motion.div>
+              {/* Key @tailwindcss animations for spin, float, bounce etc (if those classes don't exist add to Tailwind config) */}
+              <style>
+                {`
+                  @keyframes spin-slow { 100% { transform: rotate(360deg); }}
+                  @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+                  @keyframes spin-fast { 100% { transform: rotate(540deg); }}
+                  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px);} }
+                  @keyframes jump { 0%, 100% { transform: translateY(0);} 50% { transform: translateY(-18px);} }
+                  .animate-spin-slow { animation: spin-slow 7s linear infinite; }
+                  .animate-spin-reverse { animation: spin-reverse 5s linear infinite; }
+                  .animate-spin-fast { animation: spin-fast 2.5s linear infinite;}
+                  .animate-float { animation: float 2.6s ease-in-out infinite; }
+                  .animate-jump { animation: jump 2.2s cubic-bezier(.4,0,.6,1) infinite; }
+                `}
+              </style>
             </div>
           </div>
         </div>
@@ -428,3 +443,4 @@ const Index = () => {
 };
 
 export default Index;
+
