@@ -328,6 +328,74 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Why AI for Kids Section */}
+        <section className="py-16 px-4 bg-gradient-to-br from-yellow-50 to-blue-50">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
+            {/* Image */}
+            <div className="w-full md:w-1/2 mb-8 md:mb-0 flex-shrink-0 flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=700&q=80"
+                alt="Kid learning AI with a laptop"
+                className="rounded-3xl shadow-lg w-full max-w-md object-cover"
+                loading="lazy"
+                style={{ minHeight: 240 }}
+              />
+            </div>
+            {/* Text Content */}
+            <div className="w-full md:w-1/2">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900 font-['Fredoka',_Quicksand,_Baloo_2,_Nunito,_sans-serif]">
+                Why AI for Kids?
+              </h2>
+              <p className="text-lg text-gray-700 mb-8 font-['Nunito','Inter',sans-serif]">
+                Artificial Intelligence isn't just the future—it's the present. By introducing children to AI concepts early, we're not just teaching them to use technology; we're empowering them to shape it.
+              </p>
+              {/* Key points */}
+              <ul className="space-y-5">
+                <li className="flex items-start gap-3">
+                  <span className="bg-blue-200 text-blue-700 rounded-full p-2 mt-1">
+                    <svg width="20" height="20" fill="none" className="inline" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#3A86FF" /><path d="M7.5 10.8l2 2 3-4" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                  <span className="text-base text-gray-800">
+                    AI is becoming part of everyday life – from voice assistants to recommendation systems.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="bg-yellow-200 text-yellow-800 rounded-full p-2 mt-1">
+                    <svg width="20" height="20" fill="none" className="inline" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#FFBE0B" /><path d="M7.5 10.8l2 2 3-4" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                  <span className="text-base text-gray-800">
+                    Early exposure helps children understand and shape the technology they'll live with.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="bg-pink-200 text-pink-800 rounded-full p-2 mt-1">
+                    <svg width="20" height="20" fill="none" className="inline" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#FF006E" /><path d="M7.5 10.8l2 2 3-4" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                  <span className="text-base text-gray-800">
+                    AI education develops computational thinking and logical reasoning skills.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="bg-green-200 text-green-800 rounded-full p-2 mt-1">
+                    <svg width="20" height="20" fill="none" className="inline" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#4ADE80" /><path d="M7.5 10.8l2 2 3-4" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                  <span className="text-base text-gray-800">
+                    Children who learn AI early will have significant advantages in future careers.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="bg-purple-200 text-purple-800 rounded-full p-2 mt-1">
+                    <svg width="20" height="20" fill="none" className="inline" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#CDB4DB" /><path d="M7.5 10.8l2 2 3-4" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                  <span className="text-base text-gray-800">
+                    AI projects encourage creativity while teaching practical programming skills.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Featured Courses Section */}
         <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-purple-50">
           <div className="max-w-7xl mx-auto">
