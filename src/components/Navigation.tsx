@@ -19,12 +19,19 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
 
+  // Updated form state for new fields
   const [form, setForm] = useState({
-    name: "",
-    email: "",
+    studentFirstName: "",
+    studentLastName: "",
+    parentFirstName: "",
+    parentLastName: "",
+    childAge: "",
     phone: "",
+    email: "",
+    address: "",
   });
 
+  // Nav items
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -42,13 +49,36 @@ const Navigation = () => {
 
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
+    // Basic required field validation
+    if (
+      !form.studentFirstName.trim() ||
+      !form.studentLastName.trim() ||
+      !form.parentFirstName.trim() ||
+      !form.parentLastName.trim() ||
+      !form.childAge.trim() ||
+      !form.phone.trim() ||
+      !form.email.trim() ||
+      !form.address.trim()
+    ) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
     // Save to DB: see note in chat
     setDialogOpen(false);
     toast.success("Enrollment Submitted!", {
       description: "We have received your enrollment details.",
       duration: 5000,
     });
-    setForm({ name: "", email: "", phone: "" });
+    setForm({
+      studentFirstName: "",
+      studentLastName: "",
+      parentFirstName: "",
+      parentLastName: "",
+      childAge: "",
+      phone: "",
+      email: "",
+      address: "",
+    });
   }
 
   return (
@@ -60,7 +90,7 @@ const Navigation = () => {
             <Link to="/" className="flex items-center space-x-2">
               <img
                 src="/lovable-uploads/7964a8e3-f92e-4dde-995b-ffaceb073f57.png"
-                alt="Next-Gen AI School Logo"
+                alt="Monogram Logo"
                 className="w-12 h-12 rounded-full shadow-md object-cover bg-white"
               />
               <h1 className="text-2xl font-bold text-blue-600">
@@ -102,24 +132,61 @@ const Navigation = () => {
                   <form className="space-y-4" onSubmit={handleFormSubmit}>
                     <Input
                       required
-                      name="name"
-                      placeholder="Full Name"
-                      value={form.name}
+                      name="studentFirstName"
+                      placeholder="Student's First Name"
+                      value={form.studentFirstName}
+                      onChange={handleFormChange}
+                    />
+                    <Input
+                      required
+                      name="studentLastName"
+                      placeholder="Student's Last Name"
+                      value={form.studentLastName}
+                      onChange={handleFormChange}
+                    />
+                    <Input
+                      required
+                      name="parentFirstName"
+                      placeholder="Parent's First Name"
+                      value={form.parentFirstName}
+                      onChange={handleFormChange}
+                    />
+                    <Input
+                      required
+                      name="parentLastName"
+                      placeholder="Parent's Last Name"
+                      value={form.parentLastName}
+                      onChange={handleFormChange}
+                    />
+                    <Input
+                      required
+                      name="childAge"
+                      type="number"
+                      min={1}
+                      placeholder="Child's Age"
+                      value={form.childAge}
+                      onChange={handleFormChange}
+                    />
+                    <Input
+                      required
+                      name="phone"
+                      placeholder="Phone Number"
+                      value={form.phone}
                       onChange={handleFormChange}
                     />
                     <Input
                       required
                       name="email"
                       type="email"
-                      placeholder="Email"
+                      placeholder="Email Address"
                       value={form.email}
                       onChange={handleFormChange}
                     />
                     <Input
                       required
-                      name="phone"
-                      placeholder="Phone"
-                      value={form.phone}
+                      name="address"
+                      placeholder="Address"
+                      value={form.address}
                       onChange={handleFormChange}
                     />
                     <div className="flex justify-end pt-2 space-x-2">
@@ -179,24 +246,61 @@ const Navigation = () => {
                     <form className="space-y-4" onSubmit={handleFormSubmit}>
                       <Input
                         required
-                        name="name"
-                        placeholder="Full Name"
-                        value={form.name}
+                        name="studentFirstName"
+                        placeholder="Student's First Name"
+                        value={form.studentFirstName}
+                        onChange={handleFormChange}
+                      />
+                      <Input
+                        required
+                        name="studentLastName"
+                        placeholder="Student's Last Name"
+                        value={form.studentLastName}
+                        onChange={handleFormChange}
+                      />
+                      <Input
+                        required
+                        name="parentFirstName"
+                        placeholder="Parent's First Name"
+                        value={form.parentFirstName}
+                        onChange={handleFormChange}
+                      />
+                      <Input
+                        required
+                        name="parentLastName"
+                        placeholder="Parent's Last Name"
+                        value={form.parentLastName}
+                        onChange={handleFormChange}
+                      />
+                      <Input
+                        required
+                        name="childAge"
+                        type="number"
+                        min={1}
+                        placeholder="Child's Age"
+                        value={form.childAge}
+                        onChange={handleFormChange}
+                      />
+                      <Input
+                        required
+                        name="phone"
+                        placeholder="Phone Number"
+                        value={form.phone}
                         onChange={handleFormChange}
                       />
                       <Input
                         required
                         name="email"
                         type="email"
-                        placeholder="Email"
+                        placeholder="Email Address"
                         value={form.email}
                         onChange={handleFormChange}
                       />
                       <Input
                         required
-                        name="phone"
-                        placeholder="Phone"
-                        value={form.phone}
+                        name="address"
+                        placeholder="Address"
+                        value={form.address}
                         onChange={handleFormChange}
                       />
                       <div className="flex justify-end pt-2 space-x-2">
