@@ -86,56 +86,50 @@ const Index = () => {
                 >
                   100% SATISFACTION GUARANTEE
                 </motion.p>
-                {/* Animated Headline */}
+                {/* Responsive Animated Headline */}
                 <motion.h1
                   initial={{ opacity: 0, scale: 0.95, y: 28 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ duration: 0.75, delay: 0.2, type: "spring", stiffness: 60 }}
-                  className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 font-['Fredoka',_Quicksand,_Baloo_2,_Nunito,_sans-serif] leading-tight"
+                  className="text-4xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold mb-4 drop-shadow font-['Fredoka',_Quicksand,_Baloo_2,_Nunito,_sans-serif] leading-tight"
+                  style={{ lineHeight: "1.08" }}
                 >
-                  <span className="inline-block bg-gradient-to-r from-[#3A86FF] via-[#FFBE0B] to-[#FF006E] bg-clip-text text-transparent px-1">
-                    Empowering Kids
+                  <span className="inline-block bg-gradient-to-r from-[#3A86FF] via-[#FFBE0B] to-[#FF006E] bg-clip-text text-transparent font-black">
+                    Empowering{" "}
                   </span>
-                  {" "}
-                  <span className="inline-block bg-gradient-to-r from-[#83C5BE] to-[#CDB4DB] bg-clip-text text-transparent px-1 animate-pulse">
+                  <span className="inline-block bg-gradient-to-r from-[#FF006E] via-[#FFBE0B] to-[#3A86FF] bg-clip-text text-transparent font-black animate-pulse">
+                    Kids
+                  </span>
+                  <span className="inline-block font-semibold text-gray-900 ml-2" style={{fontWeight:550}}>
                     to Code
                   </span>
-                  {" with "}
-                  <span className="inline-block bg-gradient-to-r from-[#FFBE0B] via-[#3A86FF] to-[#FF006E] bg-clip-text text-transparent px-1 animate-glow font-black shadow-blue-400">
-                    <motion.span
-                      initial={{ scale: 0.5, opacity: 0 }}
-                      animate={{ scale: 1.2, opacity: 1 }}
-                      transition={{ duration: 0.55, delay: 0.35, type: "spring", stiffness: 80 }}
-                      className="drop-shadow-lg"
-                    >
-                      AI
-                    </motion.span>
+                  <span className="inline-block font-extrabold text-black ml-2" style={{fontWeight:700}}>
+                    with
+                  </span>
+                  <span className="inline-block bg-gradient-to-r from-[#3A86FF] to-[#4ADE80] bg-clip-text text-transparent font-black ml-2 animate-glow">
+                    AI
                   </span>
                 </motion.h1>
-                {/* Subheading */}
+                {/* Subheading with colored/emphasized keywords */}
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.55 }}
-                  className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed font-['Nunito',_Inter,_sans-serif] max-w-2xl mx-auto"
+                  className="text-base xs:text-lg sm:text-xl text-gray-700 mb-7 leading-relaxed font-['Nunito',_Inter,_sans-serif] max-w-2xl mx-auto"
                 >
-                  <span className="inline-block">
-                    Nurturing the
-                  </span>{" "}
-                  <span className="inline-block bg-gradient-to-r from-[#FFBE0B] to-[#83C5BE] bg-clip-text text-transparent font-bold">
-                    next generation
-                  </span>{" "}
-                  <span className="inline-block">of creators, thinkers,&nbsp;and</span>
-                  <span className="inline-block bg-gradient-to-r from-[#FF006E] to-[#3A86FF] bg-clip-text text-transparent font-bold">
-                    innovators
-                  </span>
-                  <span>
-                    &nbsp;through interactive&nbsp;
-                    <span className="text-[#3A86FF] font-semibold">AI</span>{" "}
-                    and&nbsp;coding&nbsp;education.
-                  </span>
+                  Nurturing the{" "}
+                  <span className="font-bold text-[#FFBE0B]">next generation</span>
+                  {" of "}
+                  <span className="text-[#3A86FF] font-semibold">creators</span>
+                  {", "}
+                  <span className="text-[#4ADE80] font-semibold">thinkers</span>
+                  {", and "}
+                  <span className="text-[#FF006E] font-semibold">innovators</span>{" "}
+                  through interactive{" "}
+                  <span className="text-[#3A86FF] font-bold">AI</span> and{" "}
+                  <span className="text-[#A0C4FF] font-semibold">coding education</span>.
                 </motion.p>
-                {/* CTA Buttons */}
+                {/* Responsive CTA Buttons & Subline */}
                 <motion.div
                   initial={{ opacity: 0, y: 22 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -144,21 +138,29 @@ const Index = () => {
                 >
                   <Button
                     size="lg"
-                    className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-bounce"
+                    className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-bounce focus-visible:animate-pulse active:scale-95 hover:ring-4 hover:ring-yellow-200"
                   >
                     Join For Free
                   </Button>
                   <Button
                     variant="ghost"
                     size="lg"
-                    className="text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-full transition-all duration-300 font-bold"
+                    className="text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-full transition-all duration-300 font-bold animate-glow hover:animate-bounce"
                   >
-                    <Play className="mr-2 h-5 w-5 fill-blue-600" />
+                    <svg className="inline-block mr-2 h-5 w-5 fill-blue-600" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                     See How It Works
                   </Button>
                 </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.75, delay: 1.2 }}
+                  className="text-xs text-gray-500 mt-2"
+                >
+                  Takes less than 2 mins. No credit card needed.
+                </motion.div>
               </div>
-              {/* Right: Animated/Atrractive Illustration replacing Images */}
+              {/* Right: Decorative Illustration */}
               <div className="relative h-96 flex items-center justify-center lg:block overflow-visible">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9, y: 32 }}
