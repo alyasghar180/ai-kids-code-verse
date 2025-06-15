@@ -220,54 +220,42 @@ const Index = () => {
           </div>
         </section>
 
-        {/* What Makes Us Different Section (replaces benefits section) */}
+        {/* What Makes Us Different Section */}
         <section className="py-16 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.72, type: "spring" }}
-              viewport={{ once: true, amount: 0.2 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-4xl font-bold mb-4 text-gray-800 font-['Fredoka','Quicksand','Nunito',sans-serif]">
-                What Makes Us{" "}
-                <span className="text-[#FFBE0B] drop-shadow-[0_1.5px_0_rgba(255,190,11,0.54)] animate-pulse font-extrabold">
-                  Different?
-                </span>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-extrabold mb-3 font-['Fredoka','Quicksand','Nunito',sans-serif]">
+                What Makes Us <span className="text-[#FFBE0B] animate-pulse">Different?</span>
               </h2>
-              <p className="text-xl text-gray-600">Not just another coding website for kids</p>
-            </motion.div>
-            <div
-              className="
-                grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8
-                max-w-3xl mx-auto
-              "
-            >
-              {[
-                {
-                  icon: "🚀",
-                  title: "Tech for Tomorrow",
-                  description: "Equip kids with future-proof AI and coding skills.",
-                },
-                {
-                  icon: "🧠",
-                  title: "Think Like an Innovator",
-                  description: "Encourage creativity, logic, and problem-solving.",
-                },
-                {
-                  icon: "🎮",
-                  title: "Gamified Learning",
-                  description: "Kids unlock badges, avatars & rewards as they learn.",
-                },
-                {
-                  icon: "👩‍🏫",
-                  title: "Mentors, Not Just Teachers",
-                  description: "Our instructors mentor kids through personalized feedback.",
-                },
-              ].map((card, idx) => (
-                <FlipCard key={card.title} idx={idx} {...card} />
-              ))}
+            </div>
+            <div className="
+              grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8
+              rounded-3xl shadow-none max-w-5xl mx-auto
+            ">
+              {/* Card 1 */}
+              <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-gradient-to-br from-[#f8fafc] to-[#e3f6fd] hover:shadow-lg transition-all">
+                <span className="bg-[#e0f7fa] rounded-full p-4 mb-4 text-3xl">🚀</span>
+                <h3 className="font-semibold text-lg mb-1 text-gray-800">Tech for Tomorrow</h3>
+                <p className="text-gray-600 text-base font-['Nunito',sans-serif]">Equip kids with future-proof AI and coding skills.</p>
+              </div>
+              {/* Card 2 */}
+              <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-gradient-to-br from-[#f8fafc] to-[#ffeedd] hover:shadow-lg transition-all">
+                <span className="bg-[#fff7c0] rounded-full p-4 mb-4 text-3xl">🧠</span>
+                <h3 className="font-semibold text-lg mb-1 text-gray-800">Think Like an Innovator</h3>
+                <p className="text-gray-600 text-base font-['Nunito',sans-serif]">Encourage creativity, logic, and problem-solving.</p>
+              </div>
+              {/* Card 3 */}
+              <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-gradient-to-br from-[#f8fafc] to-[#ffe0f7] hover:shadow-lg transition-all">
+                <span className="bg-[#ffd1f6] rounded-full p-4 mb-4 text-3xl">🎮</span>
+                <h3 className="font-semibold text-lg mb-1 text-gray-800">Gamified Learning</h3>
+                <p className="text-gray-600 text-base font-['Nunito',sans-serif]">Kids unlock badges, avatars &amp; rewards as they learn.</p>
+              </div>
+              {/* Card 4 */}
+              <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-gradient-to-br from-[#f8fafc] to-[#dbecfb] hover:shadow-lg transition-all">
+                <span className="bg-[#d2ebfb] rounded-full p-4 mb-4 text-3xl">👩‍🏫</span>
+                <h3 className="font-semibold text-lg mb-1 text-gray-800">Mentors, Not Just Teachers</h3>
+                <p className="text-gray-600 text-base font-['Nunito',sans-serif]">Our instructors mentor kids through personalized feedback.</p>
+              </div>
             </div>
           </div>
         </section>
