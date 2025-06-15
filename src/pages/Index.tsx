@@ -101,19 +101,17 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 px-4">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-yellow-400/10"></div>
+        <div className="absolute inset-0 bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(225,235,255,0.7),rgba(255,255,255,0))]"></div>
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <Badge className="mb-6 bg-yellow-100 text-yellow-800 hover:bg-yellow-200 text-lg px-4 py-2">
-                Ages 8+ • Physical Classes
-              </Badge>
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
+              <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">100% SATISFACTION GUARANTEE</p>
+              <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-gray-800 leading-tight">
                 Empowering Kids to Code with AI
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -121,31 +119,38 @@ const Index = () => {
                 interactive AI and coding education.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-                  Get Started Today
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+                  Join For Free
                 </Button>
                 <Button 
-                  variant="outline" 
+                  variant="ghost" 
                   size="lg" 
-                  className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg rounded-full transition-all duration-300"
+                  className="text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-full transition-all duration-300 font-bold"
                 >
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Demo
+                  <Play className="mr-2 h-5 w-5 fill-blue-600" />
+                  See How It Works
                 </Button>
               </div>
             </div>
-            <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-3xl shadow-2xl flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                    <Zap className="h-12 w-12 text-white" />
-                  </div>
-                  <p className="text-lg font-semibold">Interactive AI Learning</p>
+            <div className="relative h-96 hidden lg:block">
+              <div className="absolute -top-6 -right-6 w-16 h-16 bg-yellow-300 rounded-full opacity-80"></div>
+              <div className="absolute bottom-12 -left-12 w-10 h-10 bg-blue-400 rounded-full opacity-60"></div>
+              <div className="absolute top-1/2 -left-20 w-6 h-6 bg-purple-300 rounded-full opacity-70"></div>
+
+              <div className="grid grid-cols-2 gap-4 h-full items-center">
+                <div className="flex items-center justify-end h-full pt-10">
+                    <img src="/placeholder.svg?height=200&width=200" alt="A child learning AI" className="rounded-full object-cover w-40 h-40 lg:w-48 lg:h-48 shadow-lg" />
+                </div>
+                <div className="flex items-center justify-start h-full pb-10">
+                    <img src="/placeholder.svg?height=200&width=200" alt="A child coding" className="rounded-3xl object-cover w-40 h-40 lg:w-48 lg:h-48 shadow-lg" />
+                </div>
+                <div className="flex items-center justify-end h-full pt-10">
+                    <img src="/placeholder.svg?height=200&width=200" alt="A child building a robot" className="rounded-3xl object-cover w-40 h-40 lg:w-48 lg:h-48 shadow-lg" />
+                </div>
+                <div className="flex items-center justify-start h-full pb-10">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Children collaborating on a project" className="rounded-full object-cover w-40 h-40 lg:w-48 lg:h-48 shadow-lg" />
                 </div>
               </div>
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-full animate-bounce opacity-80"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-green-400 rounded-full animate-pulse opacity-60"></div>
             </div>
           </div>
         </div>
