@@ -1,7 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Users, BookOpen, Zap, ArrowRight, Play, CheckCircle } from "lucide-react";
+import {
+  Star,
+  Users,
+  BookOpen,
+  Zap,
+  ArrowRight,
+  Play,
+  CheckCircle,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -47,6 +55,26 @@ const Index = () => {
     }
   ];
 
+  // Array of images to show in hero
+  const heroImages = [
+    {
+      src: "/lovable-uploads/e6f59396-fb6d-49e7-b0ac-de2ee719afd3.png",
+      alt: "Graduate looking at AI city",
+    },
+    {
+      src: "/lovable-uploads/09f8fffe-8493-4b7c-97c8-0a7fc60d6417.png",
+      alt: "Girl learning AI on laptop",
+    },
+    {
+      src: "/lovable-uploads/49eac747-6f00-4f7c-ad78-cf4c38c2105c.png",
+      alt: "Confident school students",
+    },
+    {
+      src: "/lovable-uploads/3542977f-e149-4e49-b26c-75d467114156.png",
+      alt: "Smiling student with books",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -56,22 +84,28 @@ const Index = () => {
         <div className="absolute inset-0 bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(225,235,255,0.7),rgba(255,255,255,0))]"></div>
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Headline and CTA */}
             <div className="text-center lg:text-left">
-              <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">100% SATISFACTION GUARANTEE</p>
+              <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+                100% SATISFACTION GUARANTEE
+              </p>
               <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-gray-800 leading-tight">
                 Empowering Kids to Code with AI
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Nurturing the next generation of creators, thinkers, and innovators through 
-                interactive AI and coding education.
+                Nurturing the next generation of creators, thinkers, and innovators
+                through interactive AI and coding education.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button
+                  size="lg"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                >
                   Join For Free
                 </Button>
-                <Button 
-                  variant="ghost" 
-                  size="lg" 
+                <Button
+                  variant="ghost"
+                  size="lg"
                   className="text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-full transition-all duration-300 font-bold"
                 >
                   <Play className="mr-2 h-5 w-5 fill-blue-600" />
@@ -79,24 +113,49 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-            <div className="relative h-96 hidden lg:block">
+            {/* Right: Animated Hero Images */}
+            <div className="relative h-96 flex items-center justify-center lg:block">
+              {/* Decorative floating circles */}
               <div className="absolute -top-6 -right-6 w-16 h-16 bg-yellow-300 rounded-full opacity-80"></div>
               <div className="absolute bottom-12 -left-12 w-10 h-10 bg-blue-400 rounded-full opacity-60"></div>
               <div className="absolute top-1/2 -left-20 w-6 h-6 bg-purple-300 rounded-full opacity-70"></div>
-
               <div className="grid grid-cols-2 gap-4 h-full items-center">
-                <div className="flex items-center justify-end h-full pt-10">
-                    <img src="/placeholder.svg?height=200&width=200" alt="A child learning AI" className="rounded-full object-cover w-40 h-40 lg:w-48 lg:h-48 shadow-lg" />
-                </div>
-                <div className="flex items-center justify-start h-full pb-10">
-                    <img src="/placeholder.svg?height=200&width=200" alt="A child coding" className="rounded-3xl object-cover w-40 h-40 lg:w-48 lg:h-48 shadow-lg" />
-                </div>
-                <div className="flex items-center justify-end h-full pt-10">
-                    <img src="/placeholder.svg?height=200&width=200" alt="A child building a robot" className="rounded-3xl object-cover w-40 h-40 lg:w-48 lg:h-48 shadow-lg" />
-                </div>
-                <div className="flex items-center justify-start h-full pb-10">
-                    <img src="/placeholder.svg?height=200&width=200" alt="Children collaborating on a project" className="rounded-full object-cover w-40 h-40 lg:w-48 lg:h-48 shadow-lg" />
-                </div>
+                {heroImages.map((img, i) => (
+                  <div
+                    key={img.src}
+                    className={`
+                      flex items-center justify-center 
+                      ${i % 2 === 0 ? "pt-10" : "pb-10"}
+                      animate-fade-in
+                      group
+                    `}
+                    style={{
+                      animation: `fade-in 0.6s ${(i+1)*0.1}s both, scale-in 0.4s ${(i+1)*0.15}s both`
+                    }}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className={`
+                        ${i % 2 === 0 ? "rounded-full" : "rounded-3xl"} 
+                        object-cover
+                        w-40 h-40 lg:w-48 lg:h-48 
+                        shadow-lg border-4 border-white
+                        transition-transform duration-300
+                        group-hover:scale-110
+                        hover:shadow-2xl hover:brightness-105
+                        hover:-translate-y-2
+                        hover:ring-4 hover:ring-blue-200
+                        cursor-pointer
+                      `}
+                      style={{
+                        boxShadow: "0 8px 36px 0 rgba(80, 100, 255, 0.15)",
+                        transitionProperty: "transform, box-shadow, filter"
+                      }}
+                      draggable={false}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
