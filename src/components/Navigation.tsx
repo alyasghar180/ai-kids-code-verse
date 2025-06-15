@@ -3,20 +3,55 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
 
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Courses", href: "/courses" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" }
+    { name: "Contact", href: "/contact" },
   ];
 
+  function handleFormChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setForm((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
+  function handleFormSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    // Save to DB: see note in chat
+    setDialogOpen(false);
+    toast.success("Enrollment Submitted!", {
+      description: "We have received your enrollment details.",
+      duration: 5000,
+    });
+    setForm({ name: "", email: "", phone: "" });
+  }
+
   return (
-    // Add top margin (mt-6) to nav bar for space
     <div className="mt-6">
       <nav className="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
@@ -48,16 +83,65 @@ const Navigation = () => {
 
             {/* Desktop CTA Buttons */}
             <div className="hidden md:flex items-center space-x-4">
+              {/* Enroll Now dialog */}
+              <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button
+                    className="bg-green-600 hover:bg-green-700 text-white rounded-full px-6 py-2 font-semibold"
+                  >
+                    Enroll Now
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-md">
+                  <DialogHeader>
+                    <DialogTitle>Enroll Now</DialogTitle>
+                    <DialogDescription>
+                      Fill the form to express your interest. We will contact you!
+                    </DialogDescription>
+                  </DialogHeader>
+                  <form className="space-y-4" onSubmit={handleFormSubmit}>
+                    <Input
+                      required
+                      name="name"
+                      placeholder="Full Name"
+                      value={form.name}
+                      onChange={handleFormChange}
+                    />
+                    <Input
+                      required
+                      name="email"
+                      type="email"
+                      placeholder="Email"
+                      value={form.email}
+                      onChange={handleFormChange}
+                    />
+                    <Input
+                      required
+                      name="phone"
+                      placeholder="Phone"
+                      value={form.phone}
+                      onChange={handleFormChange}
+                    />
+                    <div className="flex justify-end pt-2 space-x-2">
+                      <DialogClose asChild>
+                        <Button variant="outline" type="button">
+                          Cancel
+                        </Button>
+                      </DialogClose>
+                      <Button type="submit" className="bg-blue-600 text-white hover:bg-blue-700 font-semibold">
+                        Submit
+                      </Button>
+                    </div>
+                  </form>
+                </DialogContent>
+              </Dialog>
               <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 py-2">
                 Login
               </Button>
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              className="md:hidden"
-              onClick={() => setIsOpen(!isOpen)}
-            >
+            <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
@@ -76,6 +160,58 @@ const Navigation = () => {
                     {item.name}
                   </Link>
                 ))}
+                {/* Mobile Enroll Now Button */}
+                <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      className="bg-green-600 hover:bg-green-700 text-white rounded-full w-full"
+                    >
+                      Enroll Now
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>Enroll Now</DialogTitle>
+                      <DialogDescription>
+                        Fill the form to express your interest. We will contact you!
+                      </DialogDescription>
+                    </DialogHeader>
+                    <form className="space-y-4" onSubmit={handleFormSubmit}>
+                      <Input
+                        required
+                        name="name"
+                        placeholder="Full Name"
+                        value={form.name}
+                        onChange={handleFormChange}
+                      />
+                      <Input
+                        required
+                        name="email"
+                        type="email"
+                        placeholder="Email"
+                        value={form.email}
+                        onChange={handleFormChange}
+                      />
+                      <Input
+                        required
+                        name="phone"
+                        placeholder="Phone"
+                        value={form.phone}
+                        onChange={handleFormChange}
+                      />
+                      <div className="flex justify-end pt-2 space-x-2">
+                        <DialogClose asChild>
+                          <Button variant="outline" type="button">
+                            Cancel
+                          </Button>
+                        </DialogClose>
+                        <Button type="submit" className="bg-blue-600 text-white hover:bg-blue-700 font-semibold">
+                          Submit
+                        </Button>
+                      </div>
+                    </form>
+                  </DialogContent>
+                </Dialog>
                 <div className="flex flex-col space-y-2 pt-4 border-t">
                   <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-full">
                     Login
