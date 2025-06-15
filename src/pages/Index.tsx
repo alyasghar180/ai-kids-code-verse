@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { courses as featuredCourses } from "@/data/courses";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Index = () => {
   const testimonials = [
@@ -229,29 +229,82 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <Card
-                key={index}
-                className={`
-                  text-center p-8 hover:shadow-xl transition-shadow duration-300 border-0
-                  ${benefit.bg}
-                  relative overflow-hidden
-                `}
-                style={{
-                  backgroundBlendMode: "overlay",
-                  boxShadow: "0 4px 30px 0 rgba(58,134,255,0.13)",
-                  borderRadius: "1.25rem"
+              <motion.div
+                key={benefit.title}
+                initial={{ opacity: 0, y: 45, scale: 0.92 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ scale: 1.04, boxShadow: "0 4px 50px 0 rgba(58,134,255,0.20)" }}
+                transition={{
+                  duration: 0.65,
+                  delay: 0.12 + index * 0.18,
+                  type: "spring",
+                  stiffness: 60,
+                  bounce: 0.35
                 }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="w-full"
               >
-                <CardContent className="pt-6">
-                  <div className="w-16 h-16 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-inner border border-white/40">
-                    {benefit.icon}
-                  </div>
-                  <h3 className="text-xl font-extrabold mb-4 text-gray-800 drop-shadow font-['Fredoka','Quicksand','Baloo 2',sans-serif]">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed font-['Nunito', 'Inter', sans-serif]">{benefit.description}</p>
-                </CardContent>
-              </Card>
+                <Card
+                  className={`
+                    text-center p-8 hover:shadow-2xl transition-shadow duration-300 border-0
+                    ${benefit.bg}
+                    relative overflow-hidden group
+                    cursor-pointer
+                  `}
+                  style={{
+                    backgroundBlendMode: "overlay",
+                    boxShadow: "0 4px 30px 0 rgba(58,134,255,0.13)",
+                    borderRadius: "1.25rem"
+                  }}
+                >
+                  <CardContent className="pt-6">
+                    <motion.div
+                      className="w-16 h-16 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-inner border border-white/40 group-hover:scale-110 transition-transform duration-300"
+                      whileHover={{
+                        rotate: [0, 6, -6, 0],
+                        scale: 1.13
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 160,
+                        damping: 6,
+                        repeat: 0,
+                        duration: 0.5
+                      }}
+                    >
+                      {benefit.icon}
+                    </motion.div>
+                    <h3 className="text-xl font-extrabold mb-4 text-gray-800 drop-shadow font-['Fredoka','Quicksand','Baloo 2',sans-serif]">
+                      <motion.span
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 0.65,
+                          delay: 0.24 + index * 0.14,
+                          type: "tween"
+                        }}
+                        viewport={{ once: true }}
+                        className="block bg-gradient-to-r from-[#3A86FF] via-[#FFBE0B] to-[#FF006E] bg-clip-text text-transparent"
+                      >
+                        {benefit.title}
+                      </motion.span>
+                    </h3>
+                    <motion.p
+                      initial={{ opacity: 0, y: 18 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.80,
+                        delay: 0.31 + index * 0.14,
+                        type: "tween"
+                      }}
+                      viewport={{ once: true }}
+                      className="text-gray-700 leading-relaxed font-['Nunito', 'Inter', sans-serif]"
+                    >
+                      {benefit.description}
+                    </motion.p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
