@@ -21,8 +21,13 @@ const Navigation = () => {
       <nav className="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
-            {/* Logo */}
+            {/* Logo and Brand Name */}
             <Link to="/" className="flex items-center space-x-2">
+              <img
+                src="/lovable-uploads/7964a8e3-f92e-4dde-995b-ffaceb073f57.png"
+                alt="Next-Gen AI School Logo"
+                className="w-12 h-12 rounded-full shadow-md object-cover bg-white"
+              />
               <h1 className="text-2xl font-bold text-blue-600">
                 Next-Gen AI School
               </h1>
