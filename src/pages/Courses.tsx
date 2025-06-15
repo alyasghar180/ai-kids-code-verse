@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,109 +8,11 @@ import { BookOpen, Clock, Users, Star, Search, Filter, ArrowRight } from "lucide
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { courses } from "@/data/courses";
 
 const Courses = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
-
-  const courses = [
-    {
-      id: 1,
-      title: "AI Computer Interaction",
-      category: "AI Fundamentals",
-      description: "Learn how to communicate with AI systems through fun, interactive projects. Students will explore voice assistants, chatbots, and smart interfaces.",
-      age: "8+",
-      duration: "6 weeks",
-      lessons: 12,
-      students: 156,
-      rating: 4.9,
-      price: "$149",
-      color: "bg-gradient-to-br from-blue-400 to-blue-600",
-      outcomes: ["Build voice-controlled games", "Create simple chatbots", "Understand AI responses"],
-      prerequisites: "None - Perfect for beginners",
-      tools: ["Scratch for AI", "Voice recognition tools", "Simple chat interfaces"]
-    },
-    {
-      id: 2,
-      title: "AI for Young Learners",
-      category: "AI Fundamentals",
-      description: "Discover the basics of artificial intelligence through games, storytelling, and hands-on activities designed specifically for young minds.",
-      age: "8+",
-      duration: "4 weeks",
-      lessons: 8,
-      students: 203,
-      rating: 4.8,
-      price: "$99",
-      color: "bg-gradient-to-br from-purple-400 to-purple-600",
-      outcomes: ["Understand what AI is", "Create AI-powered stories", "Build simple AI games"],
-      prerequisites: "None - Beginner friendly",
-      tools: ["AI story generators", "Educational games", "Interactive simulations"]
-    },
-    {
-      id: 3,
-      title: "Coding with AI: Step-by-Step",
-      category: "Programming",
-      description: "Build amazing projects with guided tutorials and AI assistance. Perfect introduction to programming with intelligent help along the way.",
-      age: "8+",
-      duration: "8 weeks",
-      lessons: 16,
-      students: 189,
-      rating: 4.9,
-      price: "$199",
-      color: "bg-gradient-to-br from-green-400 to-green-600",
-      outcomes: ["Write first programs with AI help", "Create interactive animations", "Build simple web pages"],
-      prerequisites: "Basic computer skills",
-      tools: ["Scratch", "AI coding assistants", "Visual programming tools"]
-    },
-    {
-      id: 4,
-      title: "Real World AI Applications",
-      category: "Advanced Projects",
-      description: "Create practical applications that solve real problems using AI. Students work on projects that have real-world impact and relevance.",
-      age: "8+",
-      duration: "10 weeks",
-      lessons: 20,
-      students: 124,
-      rating: 4.7,
-      price: "$249",
-      color: "bg-gradient-to-br from-yellow-400 to-orange-500",
-      outcomes: ["Build weather prediction apps", "Create smart home simulations", "Develop AI art generators"],
-      prerequisites: "Completion of Step-by-Step course or equivalent",
-      tools: ["Python basics", "AI APIs", "Real-world datasets"]
-    },
-    {
-      id: 5,
-      title: "Building AI Agents",
-      category: "Advanced Projects",
-      description: "Design and develop your own AI agents with advanced programming concepts. The most comprehensive course for future AI developers.",
-      age: "8+",
-      duration: "12 weeks",
-      lessons: 24,
-      students: 87,
-      rating: 4.8,
-      price: "$299",
-      color: "bg-gradient-to-br from-pink-400 to-red-500",
-      outcomes: ["Create intelligent game characters", "Build personal assistant bots", "Develop learning algorithms"],
-      prerequisites: "Real World Applications course or strong programming background",
-      tools: ["Advanced programming", "Machine learning basics", "AI frameworks"]
-    },
-    {
-      id: 6,
-      title: "AI Art & Creativity",
-      category: "Creative AI",
-      description: "Explore the intersection of artificial intelligence and creativity. Learn to create stunning digital art, music, and stories using AI tools.",
-      age: "8+",
-      duration: "6 weeks",
-      lessons: 12,
-      students: 145,
-      rating: 4.9,
-      price: "$159",
-      color: "bg-gradient-to-br from-indigo-400 to-purple-600",
-      outcomes: ["Generate AI artwork", "Compose AI-assisted music", "Write collaborative stories with AI"],
-      prerequisites: "None - Creativity focused",
-      tools: ["AI art generators", "Music AI tools", "Creative writing assistants"]
-    }
-  ];
 
   const categories = ["all", "AI Fundamentals", "Programming", "Advanced Projects", "Creative AI"];
 
@@ -185,7 +86,7 @@ const Courses = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCourses.map((course) => (
-              <Card key={course.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 border-0">
+              <Card key={course.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 border-0 flex flex-col">
                 <div className={`h-48 ${course.color} flex items-center justify-center relative`}>
                   <div className="text-white text-center">
                     <BookOpen className="h-12 w-12 mx-auto mb-2" />
@@ -199,7 +100,7 @@ const Courses = () => {
                     </Badge>
                   </div>
                 </div>
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex flex-col flex-grow">
                   <div className="flex justify-between items-start mb-3">
                     <Badge variant="secondary" className="bg-blue-100 text-blue-800">
                       Age {course.age}
@@ -211,7 +112,7 @@ const Courses = () => {
                   
                   <h3 className="text-xl font-semibold mb-2 text-gray-800">{course.title}</h3>
                   <p className="text-sm text-purple-600 font-medium mb-3">{course.category}</p>
-                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">{course.description}</p>
+                  <p className="text-gray-600 mb-4 leading-relaxed text-sm flex-grow">{course.description}</p>
                   
                   {/* Course Stats */}
                   <div className="flex items-center justify-between mb-4 text-sm text-gray-500">
@@ -242,7 +143,7 @@ const Courses = () => {
                     </ul>
                   </div>
                   
-                  <Link to={`/course/${course.id}`}>
+                  <Link to={`/course/${course.id}`} className="mt-auto">
                     <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />

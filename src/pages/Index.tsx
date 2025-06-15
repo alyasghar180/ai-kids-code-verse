@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,61 +5,9 @@ import { Star, Users, BookOpen, Zap, ArrowRight, Play, CheckCircle } from "lucid
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { courses as featuredCourses } from "@/data/courses";
 
 const Index = () => {
-  const featuredCourses = [
-    {
-      id: 1,
-      title: "AI Computer Interaction",
-      description: "Learn how to communicate with AI systems through fun, interactive projects.",
-      age: "8+",
-      duration: "6 weeks",
-      image: "/placeholder.svg?height=200&width=300",
-      color: "bg-gradient-to-br from-blue-400 to-blue-600",
-      lessons: 12
-    },
-    {
-      id: 2,
-      title: "AI for Young Learners",
-      description: "Discover the basics of artificial intelligence through games and storytelling.",
-      age: "8+",
-      duration: "4 weeks",
-      image: "/placeholder.svg?height=200&width=300",
-      color: "bg-gradient-to-br from-purple-400 to-purple-600",
-      lessons: 8
-    },
-    {
-      id: 3,
-      title: "Coding with AI: Step-by-Step",
-      description: "Build amazing projects with guided tutorials and AI assistance.",
-      age: "8+",
-      duration: "8 weeks",
-      image: "/placeholder.svg?height=200&width=300",
-      color: "bg-gradient-to-br from-green-400 to-green-600",
-      lessons: 16
-    },
-    {
-      id: 4,
-      title: "Real World AI Applications",
-      description: "Create practical applications that solve real problems using AI.",
-      age: "8+",
-      duration: "10 weeks",
-      image: "/placeholder.svg?height=200&width=300",
-      color: "bg-gradient-to-br from-yellow-400 to-orange-500",
-      lessons: 20
-    },
-    {
-      id: 5,
-      title: "Building AI Agents",
-      description: "Design and develop your own AI agents with advanced programming concepts.",
-      age: "8+",
-      duration: "12 weeks",
-      image: "/placeholder.svg?height=200&width=300",
-      color: "bg-gradient-to-br from-pink-400 to-red-500",
-      lessons: 24
-    }
-  ];
-
   const testimonials = [
     {
       name: "Emma, Age 10",
@@ -207,7 +154,7 @@ const Index = () => {
                     </Badge>
                   </div>
                   <h3 className="text-xl font-semibold mb-3 text-gray-800">{course.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{course.description}</p>
+                  <p className="text-gray-600 mb-4 leading-relaxed">{course.description.substring(0, 100)}...</p>
                   <Link to={`/course/${course.id}`}>
                     <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full">
                       Learn More
